@@ -12,6 +12,7 @@ use App\Http\Controllers\MatakuliahDosenController;
 use App\Http\Controllers\Pengambilan_MatakuliahController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\Kumpul_TugasController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,3 +89,6 @@ Route::get('/tuga/tugas/{id}', [Kumpul_TugasController::class, 'showJawabanAll']
 Route::get('/tuga/tugas/{id}/jawaban', [Kumpul_TugasController::class, 'showJawabanDetail']);
 Route::get('/jawaban/download/{namaFile}', [Kumpul_TugasController::class, 'download']);
 Route::any('/jawaban/{id}/nilai', [Kumpul_TugasController::class, 'storeNilai']);
+
+//Laporan
+Route::resource('laporan', LaporanController::class);
