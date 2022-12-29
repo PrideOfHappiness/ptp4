@@ -5,7 +5,7 @@
 @endsection
 
 @section('isi')
-    <form action="{{ route('tuga.update', $tuga->id) }}" method="POST">
+    <form action="{{ route('tuga.update', $tuga->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="hidden" id="user_id_dosen" name="user_id_dosen" value="{{ auth()->user()->id }}" required>
@@ -27,8 +27,12 @@
             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value=" {{ $tuga->deskripsi }}" placeholder="Silahkan ini Deskripsi Tugas disini" required>
         </div>
         <div class="mb-3">
-            <label for="lokasiFile" class="form-label">File Pendukung</label>
-            <input type="file" class="form-control" id="lokasiFile" name="lokasiFile" value="{{ $tuga->lokasiFile }}"> {{ $tuga->lokasiFile}}
+            <label for="lokasiFile" class="form-label">File Tugas Terdaftar</label>
+            <input type="text" class="form-control" id="file" name="lokasiFile" value="{{ $tuga->lokasiFile }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="lokasiFile" class="form-label">File Tugas Baru</label>
+            <input type="file" class="form-control" id="lokasiFile" name="lokasiFile">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

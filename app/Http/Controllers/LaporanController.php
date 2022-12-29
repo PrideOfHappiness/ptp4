@@ -9,6 +9,7 @@ use App\Models\Matakuliah;
 use App\Models\Tugas;
 use App\Models\Pengambilan_Matakuliah;
 use DB;
+use Dompdf\Dompdf;
 
 class LaporanController extends Controller
 {
@@ -29,9 +30,7 @@ class LaporanController extends Controller
         $nilai_mahasiswa =DB::table('kumpul_jawaban')
             ->join('tugas', 'kumpul_jawaban.tugas_id', '=', 'tugas.id')
             ->select('*')
-            ->get();;
+            ->get();
         return view('laporan.detail', compact('data', 'avgNilai','nilai_mahasiswa'));
-
-
     }
 }

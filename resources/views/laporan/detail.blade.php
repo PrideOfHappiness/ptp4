@@ -58,7 +58,7 @@
             @endforeach
         </tbody>
     </table>
-    Dengan Rata-Rata Nilai Studi Adalah : {{ $avgNilai}}
+    Dengan Rata-Rata Nilai Studi Adalah : {{round($avgNilai), 3}}
     <h3>Demikian laporan kartu hasil studi ini dibuat untuk dapat dipergunakan sebagaimana perlunya. </h3>
     <br>
     </div>

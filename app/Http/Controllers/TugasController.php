@@ -70,22 +70,20 @@ class TugasController extends Controller
             'lokasiFile' => 'mimes:csv,pdf,docx,xlsx,xls,doc|max:2048',
         ]);
 
-        $update = ['lokasiFile' => $request->lokasiFile];
         $tugas = Tugas::find($id);
 
-        if($request->hasFile('file')){
-            $file = $request->file('file');
-            $namaFile = $file->getClientOriginalName();
-            $file->move('upload/tugas/', $namaFile);
-            $tugas_awal = $tugas['lokasiFile'];
-            $update['lokasiFile'] = $namaFile;
-
-            if(isset($tugas_awal) && file_exists($tugas_awal)){
-                unlink($tugas_awal);
-            }
+        if($request->hasFile('lokasiFile')){
+            $lokasiFile = $request->file('lokasiFile');
+            $namaFile = $lokasiFile->getClientOriginalName();
+            $lokasiFile->move('upload/tugas/', $namaFile);
         }
 
-        $tugas->update($request, $update);
+        $tugas->user_id_dosen = $request->user_id_dosen;
+        $tugas->matakuliah_id = $request->matakuliah_id;
+        $tugas->judul = $request->judul;
+        $tugas->deskripsi = $request->deskripsi;
+        $tugas->lokasiFile = $namaFile;
+        $tugas->update();
 
         return redirect()->route('tuga.index')
             ->with('success', 'Data Berhasil Diubah!');
