@@ -27,8 +27,8 @@
             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value=" {{ $tuga->deskripsi }}" placeholder="Silahkan ini Deskripsi Tugas disini" required>
         </div>
         <div class="mb-3">
-            <label for="file" class="form-label">File Pendukung</label>
-            <input type="file" class="form-control" id="file" name="file" value="upload/tugas/{{ $tuga->lokasiFile }} ">
+            <label for="lokasiFile" class="form-label">File Pendukung</label>
+            <input type="file" class="form-control" id="lokasiFile" name="lokasiFile" value="{{ $tuga->lokasiFile }}"> {{ $tuga->lokasiFile}}
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

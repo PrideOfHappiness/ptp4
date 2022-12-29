@@ -14,19 +14,21 @@
             <label for="deskripsi" class="form-label">Deskripsi Tugas</label>
             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ $tugas->deskripsi }} " readonly>
         </div>
-        <div class="mb-3"> 
+        <div class="mb-3">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Nama Mahasiswa </th>
+                        <th>Nilai
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody> 
+                <tbody>
                     @foreach($jawaban as $jwb)
-                        <tr> 
+                        <tr>
                             <td> {{ $jwb->idMahasiswa->name }} </td>
-                            <td> 
+                            <td> {{ $jwb->nilai }}
+                            <td>
                                 <a class="badge bg-warning" href="/tuga/tugas/{{$jwb->id}}/jawaban">Lihat Jawaban Mahasiswa & Beri Nilai</span></a>
                             </td>
                         </tr>

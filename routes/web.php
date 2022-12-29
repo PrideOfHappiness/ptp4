@@ -91,4 +91,5 @@ Route::get('/jawaban/download/{namaFile}', [Kumpul_TugasController::class, 'down
 Route::any('/jawaban/{id}/nilai', [Kumpul_TugasController::class, 'storeNilai']);
 
 //Laporan
-Route::resource('laporan', LaporanController::class);
+Route::get('/laporan', [LaporanController::class, 'index']);
+Route::get('/laporan/{id}', [LaporanController::class, 'laporan']);

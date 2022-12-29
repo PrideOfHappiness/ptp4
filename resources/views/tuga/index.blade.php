@@ -34,7 +34,7 @@
                     <form action = "/tuga/{{ $semester->id }}" method="Post">
                       <a class="badge bg-info" href="/tuga/{{ $semester->id }}">Detail Tugas</span></a>
                       <a class="badge bg-warning" href="/tuga/tugas/{{$semester->id}}">Lihat Jawaban</span></a>
-                      <a class="badge bg-warning" href="/tuga/{{ $semester->id }} ">Edit Tugas</span></a>
+                      <a class="badge bg-warning" href="{{route('tuga.edit', $semester->id) }}">Edit Tugas</span></a>
                       @csrf
                       @method("DELETE")
                       <button type="submit" class="badge bg-danger"> Hapus Tugas </button>

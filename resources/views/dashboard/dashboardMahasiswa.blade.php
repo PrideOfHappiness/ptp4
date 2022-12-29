@@ -35,7 +35,7 @@
 @endsection
 
 @section('layout')
-    <h1>Wellcome, @auth {{ auth()->user()->name }} @endauth</h1>
+    <h1>Welcome, @auth {{ auth()->user()->name }} @endauth</h1>
 @endsection
 
 @section('dashboard')
