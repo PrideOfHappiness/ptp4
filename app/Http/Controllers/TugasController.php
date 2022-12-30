@@ -89,7 +89,8 @@ class TugasController extends Controller
             ->with('success', 'Data Berhasil Diubah!');
     }
 
-    public function destroy(Tugas $tuga){
+    public function destroy($id){
+        $tuga = Tugas::find($id);
         $tuga->delete();
 
         return redirect()->route('tuga.index')
