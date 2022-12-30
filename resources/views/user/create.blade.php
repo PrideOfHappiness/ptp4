@@ -25,7 +25,8 @@
         </div>
         <div class="mb-3">
             <label for="hak_akses" class="form-label">Status Jabatan</label>
-            <select name="hak_akses" id="hak_akses" n>
+            <select name="hak_akses" id="hak_akses">
+                <option value=""> Pilih Hak Akses User terlebih dahulu! </option>
                 <option value="Admin">Admin</option>
                 <option value="Dosen">Dosen</option>
                 <option value="Mahasiswa">Mahasiswa</option>

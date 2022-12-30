@@ -89,7 +89,8 @@ class MatakuliahController extends Controller
             ->with('success', 'Data Berhasil Diubah!');
     }
 
-    public function destroy(Matakuliah $matakuliah){
+    public function destroy($id){
+        $matakuliah = Matakuliah::find($id);
         $matakuliah->delete();
 
         return redirect()->route('matakuliah.index')

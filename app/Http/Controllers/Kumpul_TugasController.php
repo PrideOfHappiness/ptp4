@@ -58,12 +58,12 @@ class Kumpul_TugasController extends Controller
 
     public function showJawabanAll($id){
         $tugas = Tugas::find($id);
-        $jawaban = Kumpul_Jawaban::where('tugas_id', $id)->get();;
+        $jawaban = Kumpul_Jawaban::where('tugas_id', $id)->get();
         return view('kumpul_jawaban.showJawaban', compact('jawaban', 'tugas'));
     }
 
     public function showJawabanDetail($id){
-        $tugas = Tugas::find($id);
+        $tugas = Tugas::with('tugas_id')->selectRaw("id, judul")->first();
         $jawaban = Kumpul_Jawaban::find($id);
         return view('kumpul_jawaban.nilai', compact('jawaban', 'tugas'));
     }

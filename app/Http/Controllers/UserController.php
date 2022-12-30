@@ -58,12 +58,17 @@ class UserController extends Controller
             'hak_akses' => 'required',
             'no_hp' => 'required',
             'status' => 'required',
-            'password' => 'required',
         ]);
 
         $user = User::find($id);
 
-        $user->update($request->all());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->hak_akses = $request->hak_akses;
+        $user->no_hp = $request->no_hp;
+        $user->status = $request->status;
+        $user->update();
 
         return redirect()->route('user.index')
             ->with('success', 'Data Berhasil Diubah!');

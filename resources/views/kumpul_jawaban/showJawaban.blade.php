@@ -8,7 +8,7 @@
         <input type="hidden" id="user_id_dosen" name="user_id_dosen" value="{{ auth()->user()->id }}" required>
         <div class="mb-3">
             <label for="judul" class="form-label">Judul Tugas</label>
-            <input type="text" class="form-control" id="judul" name="judul" value="{{ $tugas->judul }} " required>
+            <input type="text" class="form-control" id="judul" name="judul" value="{{ $tugas->judul }}" required>
         </div>
         <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi Tugas</label>

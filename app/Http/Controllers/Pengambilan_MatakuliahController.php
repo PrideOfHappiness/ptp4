@@ -56,7 +56,8 @@ class Pengambilan_MatakuliahController extends Controller
         return view('pengambilan_matakuliah.show')->with('mahasiswa', $mahasiswa)->with('semester', $semester)->with('matakuliah', $matakuliah);
     }
 
-    public function destroy(Pengambilan_Matakuliah $ambilMatkul){
+    public function destroy($id){
+        $ambilMatkul = Pengambilan_Matakuliah::find($id);
         $ambilMatkul->delete();
 
         return redirect()->route('pengambilan_matakuliah.index')

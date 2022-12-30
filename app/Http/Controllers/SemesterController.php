@@ -55,7 +55,8 @@ class SemesterController extends Controller
             ->with('success', 'Data Berhasil Diubah!');
     }
 
-    public function destroy(Semester $semester){
+    public function destroy($id){
+        $semester = Semester::find($id);
         $semester->delete();
 
         return redirect()->route('semester.index')
